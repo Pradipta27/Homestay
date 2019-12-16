@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2019 at 10:37 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Dec 16, 2019 at 03:42 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hotel`
+-- Database: `rebahan-homestay`
 --
 
 -- --------------------------------------------------------
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `booking` (
-  `BookId` int  NOT NULL,
-  `roomId` int NOT NULL,
-  `guestId` varchar(200) NOT NULL,
+  `BookId` int(11) NOT NULL,
+  `roomId` int(11) NOT NULL,
+  `guestId` varchar(200) CHARACTER SET latin1 NOT NULL,
   `dateFrom` date NOT NULL,
   `dateTo` date NOT NULL,
   `total_price` int(11) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -66,10 +66,10 @@ INSERT INTO `guest` (`guestId`, `guestPw`, `guestName`, `guestContact`) VALUES
 --
 
 CREATE TABLE `room` (
-  `roomId` INT NOT NULL,
-  `type` varchar(4) NOT NULL,
+  `roomId` int(11) NOT NULL,
+  `type` varchar(4) CHARACTER SET latin1 NOT NULL,
   `price` int(11) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -79,7 +79,7 @@ CREATE TABLE `room` (
 
 CREATE TABLE `type_room` (
   `type_room` varchar(5) NOT NULL,
-  `max_occupancy` int NULL,
+  `max_occupancy` int(11) DEFAULT NULL,
   `floor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -101,8 +101,8 @@ INSERT INTO `type_room` (`type_room`, `max_occupancy`, `floor`) VALUES
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`BookId`),
-  ADD KEY `Guestid` (`guestId`),
-  ADD KEY `roomid` (`roomId`);
+  ADD KEY `room_ID` (`roomId`),
+  ADD KEY `guest_id` (`guestId`);
 
 --
 -- Indexes for table `guest`
@@ -115,7 +115,7 @@ ALTER TABLE `guest`
 --
 ALTER TABLE `room`
   ADD PRIMARY KEY (`roomId`),
-  ADD KEY `roomtype` (`type`);
+  ADD KEY `typeroom` (`type`);
 
 --
 -- Indexes for table `type_room`
@@ -133,6 +133,9 @@ ALTER TABLE `type_room`
 ALTER TABLE `booking`
   MODIFY `BookId` int(11) NOT NULL AUTO_INCREMENT;
 
+--
+-- AUTO_INCREMENT for table `room`
+--
 ALTER TABLE `room`
   MODIFY `roomId` int(11) NOT NULL AUTO_INCREMENT;
 
@@ -144,14 +147,14 @@ ALTER TABLE `room`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `Guestid` FOREIGN KEY (`guestId`) REFERENCES `guest` (`guestId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `roomid` FOREIGN KEY (`roomId`) REFERENCES `room` (`roomId`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `guest_id` FOREIGN KEY (`guestId`) REFERENCES `guest` (`guestId`),
+  ADD CONSTRAINT `room_ID` FOREIGN KEY (`roomId`) REFERENCES `room` (`roomId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `room`
 --
 ALTER TABLE `room`
-  ADD CONSTRAINT `roomtype` FOREIGN KEY (`type`) REFERENCES `type_room` (`type_room`) ON DELETE CASCADE;
+  ADD CONSTRAINT `typeroom` FOREIGN KEY (`type`) REFERENCES `type_room` (`type_room`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
