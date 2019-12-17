@@ -1,9 +1,11 @@
 <html>
 <h1>Rebahan-Homestay </h1>
-<h2>Dibuat untuk tugas Final Project Pemrograman Web & Pemrograman Basis Data </h2>
+<h2>Dibuat untuk melengkapi Tugas Final Project Pemrograman Web & Pemrograman Basis Data oleh : Anggit Ferdita Nugraha, S.T., M.Eng</h2>
 
-Anggota : 
-Pradipta Agus Wibisono <br>
-Pradipta Mahardika Sulaksono <br>
-Reza Adriyanto <br>
+Anggota : <br>
+<ol>
+  <li>Pradipta Agus Wibisono        <b>(18.83.0170)</b></li>
+  <li>Pradipta Mahardika Sulaksono  <b>(18.83.0191)</b</li>
+  <li>Reza Adriyanto                <b>(18.83.0142)</b</li>
+</ol>
 </html>
