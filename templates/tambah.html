@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% block judul %} Guest Register {% endblock %}
+{% block JudulKonten %}
+    <h3 class="box-title">Guest Register</h3>
+{% endblock %}
+{% block konten %}
+    <form action="{{ url_for('guestRegister') }}" method="post">
+        <div class="form-group">
+            <label>Guest ID</label>
+            <input type="text" name="GuestId" class="form-control" placeholder="Guest ID" required>
+        </div>
+        <div class="form-group">
+            <label>Guest PW</label>
+            <input type="password" name="GuestPw" class="form-control" placeholder="Guest Password" required>
+        </div>
+        <div class="form-group">
+            <label>Nama Lengkap</label>
+            <input type="text" name="GuestName" class="form-control" placeholder="Nama Lengkap" required>
+        <div class="form-group">
+            <label>Kontak</label>
+            <input type="text" name="GuestKontak" class="form-control" placeholder="Kontak" required>
+        </div>
+        <div class="box-footer">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-promary pull-right">Submit</button>
+        </div>
+			</form>
+    </form>
+{% endblock %}
