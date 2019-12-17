@@ -5,7 +5,7 @@
 Anggota : <br>
 <ol>
   <li>Pradipta Agus Wibisono        <b>(18.83.0170)</b></li>
-  <li>Pradipta Mahardika Sulaksono  <b>(18.83.0191)</b</li>
-  <li>Reza Adriyanto                <b>(18.83.0142)</b</li>
+  <li>Pradipta Mahardika Sulaksono  <b>(18.83.0191)</b></li>
+    <li>Reza Adriyanto              <b>(18.83.0142)</b></li>
 </ol>
 </html>
