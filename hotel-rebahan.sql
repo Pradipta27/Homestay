@@ -28,21 +28,24 @@ SET time_zone = "+00:00";
 -- Table structure for table `booking`
 --
 
+CREATE DATABASE IF NOT EXISTS `rebahan-homestay`;
+
+USE `rebahan-homestay`;
+
 CREATE TABLE `booking` (
   `BookId` int(11) NOT NULL,
-  `roomId` int(11) NOT NULL,
+  `roomId` varchar(200) NOT NULL,
   `guestId` varchar(200) CHARACTER SET latin1 NOT NULL,
   `dateFrom` date NOT NULL,
   `dateTo` date NOT NULL,
   `total_price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `guest`
 --
-
 CREATE TABLE `guest` (
   `guestId` varchar(200) NOT NULL,
   `guestPw` varchar(200) NOT NULL,
@@ -64,19 +67,17 @@ INSERT INTO `guest` (`guestId`, `guestPw`, `guestName`, `guestContact`) VALUES
 --
 -- Table structure for table `room`
 --
-
 CREATE TABLE `room` (
-  `roomId` int(11) NOT NULL,
+  `roomId` varchar(200) NOT NULL,
   `type` varchar(4) CHARACTER SET latin1 NOT NULL,
   `price` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `type_room`
 --
-
 CREATE TABLE `type_room` (
   `type_room` varchar(5) NOT NULL,
   `max_occupancy` int(11) DEFAULT NULL,
@@ -132,30 +133,6 @@ ALTER TABLE `type_room`
 --
 ALTER TABLE `booking`
   MODIFY `BookId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `room`
---
-ALTER TABLE `room`
-  MODIFY `roomId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `booking`
---
-ALTER TABLE `booking`
-  ADD CONSTRAINT `guest_id` FOREIGN KEY (`guestId`) REFERENCES `guest` (`guestId`),
-  ADD CONSTRAINT `room_ID` FOREIGN KEY (`roomId`) REFERENCES `room` (`roomId`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `room`
---
-ALTER TABLE `room`
-  ADD CONSTRAINT `typeroom` FOREIGN KEY (`type`) REFERENCES `type_room` (`type_room`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
