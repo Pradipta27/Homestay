@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2019 at 03:42 PM
+-- Generation Time: Dec 20, 2019 at 05:21 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -28,14 +28,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `booking`
 --
 
-CREATE DATABASE IF NOT EXISTS `rebahan-homestay`;
-
-USE `rebahan-homestay`;
-
 CREATE TABLE `booking` (
   `BookId` int(11) NOT NULL,
   `roomId` varchar(200) NOT NULL,
-  `guestId` varchar(200) CHARACTER SET latin1 NOT NULL,
+  `guestId` varchar(200) NOT NULL,
   `dateFrom` date NOT NULL,
   `dateTo` date NOT NULL,
   `total_price` int(11) NOT NULL
@@ -46,9 +42,10 @@ CREATE TABLE `booking` (
 --
 -- Table structure for table `guest`
 --
+
 CREATE TABLE `guest` (
   `guestId` varchar(200) NOT NULL,
-  `guestPw` varchar(200) NOT NULL,
+  `guestEmail` varchar(200) NOT NULL,
   `guestName` varchar(200) NOT NULL,
   `guestContact` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -57,7 +54,7 @@ CREATE TABLE `guest` (
 -- Dumping data for table `guest`
 --
 
-INSERT INTO `guest` (`guestId`, `guestPw`, `guestName`, `guestContact`) VALUES
+INSERT INTO `guest` (`guestId`, `guestEmail`, `guestName`, `guestContact`) VALUES
 ('pradipta.27', 'pradipta.27', 'pradipta agus wibisono', '18.83.0170'),
 ('pradipta.s', 'pradipta.s', 'pradipta mahardika sulaksono', '18.83.0191'),
 ('reza.28', 'reza.28', 'reza adriyanto', '18.83.0142');
@@ -67,9 +64,10 @@ INSERT INTO `guest` (`guestId`, `guestPw`, `guestName`, `guestContact`) VALUES
 --
 -- Table structure for table `room`
 --
+
 CREATE TABLE `room` (
   `roomId` varchar(200) NOT NULL,
-  `type` varchar(4) CHARACTER SET latin1 NOT NULL,
+  `type` varchar(4) NOT NULL,
   `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -78,6 +76,7 @@ CREATE TABLE `room` (
 --
 -- Table structure for table `type_room`
 --
+
 CREATE TABLE `type_room` (
   `type_room` varchar(5) NOT NULL,
   `max_occupancy` int(11) DEFAULT NULL,
@@ -133,6 +132,7 @@ ALTER TABLE `type_room`
 --
 ALTER TABLE `booking`
   MODIFY `BookId` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
