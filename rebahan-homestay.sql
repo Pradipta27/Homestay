@@ -102,7 +102,7 @@ INSERT INTO `room` (`roomId`, `type`, `price`) VALUES
 
 CREATE TABLE `type_room` (
   `type_room` varchar(5) NOT NULL,
-  `max_occupancy` int(11) DEFAULT NULL,
+  `max_occupancy` int(11) NOT NULL,
   `floor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
