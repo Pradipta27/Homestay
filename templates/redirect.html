@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block judul %} - Receipt {% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block konten %}
+<div class="section">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+            <div>
+                <div class="title-area" id="redirect">
+                    <h2>Reservation Receipt</h2>
+                    <div class="separator separator-danger">✻✻✻</div>
+                    <p class="description"><b>Rebahan-Homestay</b> <br>
+                    Please bring this receipt when you're about to check in! <br>
+                    </p>
+                    <div class="col-xl-6">
+                        <table class="table table-bordered table-hover td">
+                            {% for row in hasil2 %}
+                        </table>
+                            <table class="table table-bordered table-hover text-align:left" style="text-align:left">
+                                <tr><th>Book ID<td>{{ row.0 }}</td></tr>
+                                {% for row in hasil %}
+                                    <tr><th>Guest ID<td>{{ row.0 }}</td></tr>
+                                    <tr><th>Nama<td>{{ row.2 }}</td></tr>
+                                    <tr><th>Email<td>{{ row.1 }}</td></tr>
+                                    <tr><th>Kontak<td>{{ row.3 }}</td></tr>
+                                {% endfor %}
+                                    <tr><th>Room ID<td>{{ row.2 }}</td></tr>
+                                    <tr><th>Check In<td>{{ row.3 }}</td></tr>
+                                    <tr><th>Check Out<td>{{ row.4 }}</td></tr>
+                                    <tr><th>Total Harga<td>{{ row.5 }}</td></tr>
+                        </table>
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
