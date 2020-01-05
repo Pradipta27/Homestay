@@ -18,8 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE IF NOT EXISTS  rebahan-homestay;
-USE DATABASE rebahan-homestay;
+
 
 --
 -- Database: `rebahan-homestay`
@@ -33,7 +32,7 @@ USE DATABASE rebahan-homestay;
 
 CREATE TABLE `booking` (
   `BookId` int(11) NOT NULL,
-  `guestId` int(200) DEFAULT NULL,
+  `guestId` int(200) NOT NULL,
   `roomId` varchar(200) NOT NULL,
   `dateFrom` date NOT NULL,
   `dateTo` date NOT NULL,
