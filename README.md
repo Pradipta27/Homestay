@@ -1,5 +1,5 @@
 <html>
-<h1>Rebahan-Homestay </h1>
+<h1>Rebahan-Homestay Rev.1</h1>
 <h2>Dibuat untuk melengkapi Tugas Final Project Pemrograman Web & Pemrograman Basis Data oleh : Anggit Ferdita Nugraha, S.T., M.Eng</h2>
 
 Anggota : <br>
